@@ -6,6 +6,8 @@ ruby '2.6.4'
 gem 'devise'
 gem 'omniauth-facebook'
 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 # Use postgresql as the database for Active Record

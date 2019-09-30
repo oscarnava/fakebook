@@ -1,14 +1,18 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "posts/show", type: :view do
+RSpec.describe 'posts/show', type: :view do
+  let(:user) { User.create(username: 'Dummy', email: 'dummy@dummy.com', password: 'abcdefg') }
+
   before(:each) do
     @post = assign(:post, Post.create!(
-      :content => "Content",
-      :user => nil
-    ))
+                            content: 'Content',
+                            user: user
+                          ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Content/)
     expect(rendered).to match(//)

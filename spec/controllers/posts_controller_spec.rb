@@ -29,12 +29,10 @@ RSpec.describe PostsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
-  let(:user) { User.create(username: 'Dummy', email: 'dummy@dummy.com', password: 'abcdefg') }
 
   let(:valid_attributes) do
     { content: 'Some content',
-      user_id: user.id
-    }
+      user_id: create(:user).id }
   end
 
   let(:invalid_attributes) do
@@ -110,6 +108,7 @@ RSpec.describe PostsController, type: :controller do
 
       it 'updates the requested post' do
         post = Post.create! valid_attributes
+        user = post.user
         put :update, params: { id: post.to_param, post: new_attributes }, session: valid_session
         post.reload
         expect(post.content).to eq(new_attributes[:content])

@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
+
+<%= render 'form', post: @post %>
+
 <main class="posts-container">
   <% @posts.each do |post| %>
   <%= render 'posts/partials/post', post: post %>

@@ -3,12 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe 'posts/show', type: :view do
-  let(:user) { User.create(username: 'Dummy', email: 'dummy@dummy.com', password: 'abcdefg') }
-
   before(:each) do
     @post = assign(:post, Post.create!(
                             content: 'Content',
-                            user: user
+                            user: create(:user)
                           ))
   end
 

@@ -3,10 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'posts/edit', type: :view do
-  let(:user) { User.create(username: 'Dummy', email: 'dummy@dummy.com', password: 'abcdefg') }
-
   before(:each) do
-    @post = assign(:post, Post.create!(content: 'MyString', user: user))
+    @post = assign(:post, Post.create!(content: 'MyString', user: create(:user)))
   end
 
   it 'renders the edit post form' do

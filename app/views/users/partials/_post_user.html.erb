@@ -1,1 +1,4 @@
-<div class="user">Author: <%= user.username %></div>
+<div class="user">
+  <span><%= gravatar_for user, size: 24 %>
+  <span>Author: <%= link_to user.username, user %></span>
+</div>

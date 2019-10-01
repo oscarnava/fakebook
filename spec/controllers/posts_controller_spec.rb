@@ -37,8 +37,7 @@ RSpec.describe PostsController, type: :controller do
 
   let(:invalid_attributes) do
     { content: 'Some content',
-      user_id: -1
-    }
+      user_id: -1 }
   end
 
   # This should return the minimal set of values that should be in the session

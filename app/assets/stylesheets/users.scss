@@ -1,4 +1,7 @@
+$user-name-color: #0089ff;
+
 .user-profile {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   align-items: flex-end;
 
@@ -9,12 +12,36 @@
   .name {
     font-size: 32px;
     font-weight: bold;
-    font-family: fantasy;
     margin-bottom: 5px;
+    color: $user-name-color;
   }
 
   .email {
     font-size: 12px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+}
+
+.user-inset {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  // border: dotted thin red;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    margin-right: 3px;
+  }
+
+  .name {
+    font-size: 14px;
+    font-weight: bold;
+
+    & > a {
+      color: $user-name-color;
+
+      &:visited {
+        color: $user-name-color;
+      }
+    }
   }
 }

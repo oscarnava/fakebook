@@ -1,10 +1,11 @@
 <div class="comments">
-  <% post.comments.each do |comment| %>
-    <%= render 'users/partials/post_user', user: comment.user %>
-    <div class="commment-content">
-      <%= comment.content %>
-    </div>
-  <% end %>
-
+  <div class="list">
+    <% post.comments.each do |comment| %>
+      <div class="comment">
+        <%= render 'users/partials/post_user', user: comment.user %>
+        <div class="commment-content"><%= comment.content %></div>
+      </div>
+    <% end %>
+  </div>
   <%= render 'comments/form', comment: comment, post: post %>
 </div>

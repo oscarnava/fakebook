@@ -6,7 +6,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    current_user.likes.destroy(like_params)
+    current_user.likes.destroy(params[:like_id])
+    redirect_to :root
   end
 
   private

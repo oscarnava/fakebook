@@ -1,4 +1,8 @@
 <span>
-  <%= link_to '👍', likes_create_path(likeable_id: post.id, likeable_type: :Post) %>
+  <% if like = post.likes.find { |like| like.user.id == current_user.id } %>
+    <%= link_to '👍', likes_destroy_path(like_id: like.id) %>
+  <% else %>
+    <%= link_to '👍', likes_create_path(likeable_id: post.id, likeable_type: :Post) %>
+  <% end %>
   <%= post.likes.count %>
 </span>

@@ -1,0 +1,6 @@
+<%= render 'users/partials/user_profile', user: @user %>
+<div class="user-posts">
+  <% @user.posts.each do |post| %>
+    <%= render 'posts/partials/post', post: post %>
+  <% end %>
+</div>

@@ -9,4 +9,8 @@ A Facebook wannabe: Some of the core features of the platform – users, profile
 
 ![fakebook-erd](docs/fakebook.png)
 
+### Setup demo data
+
+To populate the database with the demo data, run `rails db:seed`.
+
 [Assignment link](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).

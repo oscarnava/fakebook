@@ -1,0 +1,9 @@
+
+<h1>Users</h1>
+<main class="users-container">
+  <% @users.each do |user| %>
+<%= render 'users/partials/user_profile', user: user, link: true %>
+  <% end %>
+</main>
+
+<%= link_to 'New Post', new_post_path %>

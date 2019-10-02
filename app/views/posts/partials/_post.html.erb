@@ -1,0 +1,12 @@
+<section class="post">
+  <%= render 'users/partials/post_user', user: post.user %>
+  <div class="content"><%= post.content %></div>
+  <div class="creation-date"><%= post.created_at %></div>
+  <div class="options">
+    <ul>
+      <li><%= link_to 'Show', post %></li>
+      <li><%= link_to 'Edit', edit_post_path(post) %></li>
+      <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+  </div>
+</section>

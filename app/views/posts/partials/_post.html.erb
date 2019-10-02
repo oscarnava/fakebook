@@ -2,6 +2,9 @@
   <%= render 'users/partials/post_user', user: post.user %>
   <div class="content"><%= post.content %></div>
   <div class="creation-date"><%= post.created_at %></div>
+  <div class="likes">
+    <%= render 'likes/partials/like', post: post %>
+  </div>
   <div class="options">
     <ul>
       <li><%= link_to 'Show', post %></li>

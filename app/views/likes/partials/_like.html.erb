@@ -1,0 +1,4 @@
+<span>
+  <%= link_to '👍', likes_create_path(likeable_id: post.id, likeable_type: :Post) %>
+  <%= post.likes.count %>
+</span>

@@ -3,10 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .post {
-  border: solid thick #999;
-  border-style: groove;
+  border: solid 1px #999;
+  border-radius: 5px;
   padding: 5px;
   margin-bottom: 10px;
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
 
   .content {
     font-size: 16px;

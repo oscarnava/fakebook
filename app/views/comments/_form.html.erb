@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
+  <%= gravatar_for current_user, size: 24 %>
   <div class="field">
-    <%= form.label :content, 'Comment' %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, placeholder: 'Leave a comment...' %>
   </div>
 
   <%= form.hidden_field :post_id, value: post.id %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save' %>
   </div>
 <% end %>

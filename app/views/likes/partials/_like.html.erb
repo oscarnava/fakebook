@@ -1,8 +1,8 @@
-<span>
+<div class="likes-wrapper">
   <% if like = post.likes.find { |like| like.user.id == current_user.id } %>
-    <%= link_to '👍', likes_destroy_path(like_id: like.id) %>
+    <%= link_to image_tag('thumbs-up.png', alt: 'Thumbs-up'), likes_destroy_path(like_id: like.id) %>
   <% else %>
-    <%= link_to '👍', likes_create_path(likeable_id: post.id, likeable_type: :Post) %>
+    <%= link_to image_tag('thumbs-up.png', alt: 'Thumbs-up'), likes_create_path(likeable_id: post.id, likeable_type: :Post) %>
   <% end %>
   <%= post.likes.count %>
-</span>
+</div>

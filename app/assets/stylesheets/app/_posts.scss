@@ -4,7 +4,7 @@
 
 .post {
   background-color: #fff;
-  border: solid 1px #999;
+  border: solid 1px $light-gray;
   border-radius: 5px;
   padding: 5px;
   margin-bottom: 10px;
@@ -32,12 +32,19 @@
   .likes {
     margin: 0 5px;
     border: solid 2px #e5900a;
-    background-color: #fcac2c73;
+    background-color: #fcac2c2a;
     border-radius: 35%;
     padding: 3px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     font-size: 14px;
+    .likes-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      width: 16px;
+    }
   }
 
   .options {

@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @comment = Comment.new
-    @posts = Post.posts_list(current_user)
+    @posts = Post.includes(:comments).posts_list(current_user)
   end
 
   # GET /posts/1

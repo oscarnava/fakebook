@@ -8,6 +8,7 @@
 
 USER_COUNT = 20
 POST_COUNT = 10
+COMMENT_COUNT = 10
 
 def create_user(username, email, password)
   User.create(
@@ -29,4 +30,10 @@ create_user('Demo', 'demo@demo.com', 'demodemo')
 
 USER_COUNT.times do
   create_user(Faker::Name.first_name + Faker::Name.middle_name, Faker::Internet.email, Faker::Lorem.characters(number: 10))
+end
+
+Post.all.each do |post|
+  rand(COMMENT_COUNT).times do
+    post.comments.create(content: Faker::Hipster.sentence, user: User.all.sample)
+  end
 end

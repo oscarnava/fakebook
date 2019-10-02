@@ -7,8 +7,10 @@
     margin-top: 1em;
     display: flex;
     align-items: flex-start;
-
     .commment-content {
+      background-color: #d3d3d359;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
       min-height: 32px;
       margin-left: 10px;
     }

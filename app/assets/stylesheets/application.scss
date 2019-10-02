@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'variables';
+@import 'app';
+@import 'comments';
+@import 'likes';
+@import 'posts';
+@import 'users';
+// @import 'scaffolds';

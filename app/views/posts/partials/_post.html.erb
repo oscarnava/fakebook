@@ -9,4 +9,7 @@
       <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     </ul>
   </div>
+  <div class="comments">
+    <%= render 'comments/form', comment: @comment, post: post %>
+  </div>
 </section>

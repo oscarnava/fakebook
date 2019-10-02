@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @post = Post.new
+    @comment = Comment.new
     @posts = Post.posts_list(current_user)
   end
 

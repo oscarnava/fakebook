@@ -10,6 +10,27 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  has_many :friendships, foreign_key: 'requester_id'
-  has_many :friends, through: :friendships
+  has_many :following, foreign_key: 'requester_id', class_name: :Friendship
+  # has_many :friends, through: :friendships, source: :requestee
+
+  has_many :followers, foreign_key: 'requestee_id', class_name: :Friendship
+  # has_many :followers, through: :requests, source: :requester
+
+  # Requests made by others to current_user
+  def active_followers
+    followers.filter(&:accepted?).map(&:requester)
+  end
+
+  def pending_followers
+    followers.filter(&:pending?).map(&:requester)
+  end
+
+  # Requests made by current_user to others
+  def pending_following
+    following.filter(&:pending?).map(&:requestee)
+  end
+
+  def active_following
+    following.filter(&:accepted?).map(&:requestee)
+  end
 end

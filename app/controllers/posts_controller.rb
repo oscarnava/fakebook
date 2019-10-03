@@ -7,7 +7,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @post = Post.new
-    @posts = Post.posts_list(current_user)
+    @comment = Comment.new
+    @posts = Post.includes(:comments).posts_list(current_user)
   end
 
   # GET /posts/1
@@ -55,6 +56,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @post.comments.destroy_all
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }

@@ -1,0 +1,32 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comments {
+  form {
+    background-color: $light-gray;
+    padding: 0.5rem;
+    display: flex;
+    margin: 1rem -5px -5px -5px;
+    align-items: center;
+    .field {
+      margin: 0 1rem;
+      flex: auto;
+      textarea {
+        width: 100%;
+      }
+    }
+  }
+  .comment {
+    margin-top: 1em;
+    display: flex;
+    align-items: flex-start;
+    .commment-content {
+      background-color: $light-gray;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 32px;
+      margin-left: 10px;
+    }
+  }
+}

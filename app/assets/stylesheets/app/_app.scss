@@ -1,0 +1,14 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  background-color: $background-color;
+  font-family: sans-serif;
+}
+
+main {
+  max-width: 620px;
+  margin: auto;
+}

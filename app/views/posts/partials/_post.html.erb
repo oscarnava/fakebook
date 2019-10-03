@@ -1,12 +1,17 @@
 <section class="post">
   <%= render 'users/partials/post_user', user: post.user %>
   <div class="content"><%= post.content %></div>
-  <div class="creation-date"><%= post.created_at %></div>
-  <div class="options">
-    <ul>
-      <li><%= link_to 'Show', post %></li>
-      <li><%= link_to 'Edit', edit_post_path(post) %></li>
-      <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    </ul>
+  <div class="props">
+    <div class="creation-date"><%= link_to time_ago_in_words(post.created_at) + ' ago', post %></div>
+    <div class="likes">
+      <%= render 'likes/partials/like', likeable: post %>
+    </div>
+    <div class="options">
+      <ul>
+        <li><%= link_to 'Edit', edit_post_path(post) %></li>
+        <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </div>
   </div>
+  <%= render 'comments/partials/comment', post: post, comment: comment %>
 </section>

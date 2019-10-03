@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @comment = Comment.new
-    @posts = Post.includes(:comments).posts_list(current_user)
+    user_ids = [current_user.id] + current_user.active_followers.map(&:id) + current_user.active_following.map(&:id)
+    @posts = Post.includes(:comments, :likes).posts_list(user_ids)
   end
 
   # GET /posts/1

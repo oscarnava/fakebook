@@ -29,7 +29,7 @@ end
 create_user('Demo', 'demo@demo.com', 'demodemo')
 
 USER_COUNT.times do
-  create_user(Faker::Name.first_name + Faker::Name.middle_name, Faker::Internet.email, Faker::Lorem.characters(number: 10))
+  create_user(Faker::Name.first_name + Faker::Name.middle_name, Faker::Internet.email, 'demodemo')
 end
 
 Post.all.each do |post|

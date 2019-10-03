@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'friendships/create'
   get 'friendships/destroy'
+  get 'friendships/update'
   get 'likes/create'
   get 'likes/destroy'
   resources :comments

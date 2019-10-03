@@ -1,8 +1,22 @@
 
 <h1>Users</h1>
 <main class="users-container">
-  <% @users.each do |user| %>
-<%= render 'users/partials/user_profile', user: user, link: true %>
+  <% following = current_user.active_following %>
+  <% followers = current_user.active_followers %>
+  <% pending_followers = current_user.pending_followers %>
+  <h4>Pending requests</h4>
+  <% pending_followers.each do |pending_follower| %>
+    <%= render 'users/partials/user_profile', user: pending_follower, link: true %>
+    <%= link_to 'Accept', friendships_update_path(requester_id: pending_follower.id, status: :accepted) %>
+  <% end %>
+  <h4>Following</h4>
+  <% (following + followers).each do |pending_follower| %>
+    <%= render 'users/partials/user_profile', user: pending_follower, link: true %>
+  <% end %>
+  <h4>All users</h4>
+  <% (@users - following - followers - pending_followers - [current_user]).each do |user| %>
+    <%= render 'users/partials/user_profile', user: user, link: true %>
+    <%= link_to 'Send request', friendships_create_path(requestee_id: user.id) %>
   <% end %>
 </main>
 

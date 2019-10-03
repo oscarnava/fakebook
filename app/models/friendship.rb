@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Friendship < ApplicationRecord
   enum status: %i[pending accepted rejected]
 
@@ -10,5 +12,4 @@ class Friendship < ApplicationRecord
   def insert_friendship
     self.relation = requester_id > requestee_id ? "#{requestee_id}|#{requester_id}" : "#{requester_id}|#{requestee_id}"
   end
-
 end

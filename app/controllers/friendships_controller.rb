@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FriendshipsController < ApplicationController
   def create
     flash[:error] = "Couldn't befriend #{friendship_params[:requestee_id]}" unless current_user.following.new(friendship_params).save

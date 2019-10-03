@@ -4,7 +4,7 @@
   <div class="props">
     <div class="creation-date"><%= link_to time_ago_in_words(post.created_at) + ' ago', post %></div>
     <div class="likes">
-      <%= render 'likes/partials/like', post: post %>
+      <%= render 'likes/partials/like', likeable: post %>
     </div>
     <div class="options">
       <ul>

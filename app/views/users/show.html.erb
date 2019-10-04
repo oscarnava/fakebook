@@ -1,4 +1,8 @@
-<%= render 'users/partials/user_profile', user: @user %>
+<% content_for :main_header do %>
+  <div class="profile">
+    <%= render 'users/partials/user_profile', user: @user %>
+  </div>
+<% end %>
 <main class="posts-container">
   <% @user.posts.each do |post| %>
     <%= render 'posts/partials/post', post: post, comment: @comment %>

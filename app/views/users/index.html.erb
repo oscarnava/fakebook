@@ -1,27 +1,45 @@
 
-<h1>Users</h1>
+<% content_for :header_h1 do %>
+  <h1>Users 🙋</h1>
+<% end %>
+
 <main class="users-container">
   <% following = current_user.active_following %>
   <% followers = current_user.active_followers %>
   <% pending_followers = current_user.pending_followers %>
-  <h4>Pending requests</h4>
+  <h2>Pending requests</h2>
   <% pending_followers.each do |pending_follower| %>
-    <%= render 'users/partials/user_profile', user: pending_follower, link: true %>
-    <%= link_to 'Accept', friendships_update_path(requester_id: pending_follower.id, status: :accepted) %>
+    <div class="user-profile">
+      <div class="profile">
+        <%= render 'users/partials/user_profile', user: pending_follower, link: true %>
+      </div>
+      <div class="comments">
+        <%= link_to 'Accept', friendships_update_path(requester_id: pending_follower.id, status: :accepted), class: 'option-button' %>
+      </div>
+    </div>
+
   <% end %>
-  <h4>Following</h4>
+  <h2>Following</h2>
   <% (following + followers).each do |pending_follower| %>
-    <%= render 'users/partials/user_profile', user: pending_follower, link: true %>
+    <div class="user-profile">
+      <div class="profile">
+        <%= render 'users/partials/user_profile', user: pending_follower, link: true %>
+      </div>
+    </div>
   <% end %>
-  <h4>All users</h4>
+  <h2>All users</h2>
   <% (@users - following - followers - pending_followers - [current_user]).each do |user| %>
-    <%= render 'users/partials/user_profile', user: user, link: true %>
-    <% if current_user.pending_following.include? user %>
-      <div class="">Request pending...</div>
-    <% else %>
-      <%= link_to 'Send request', friendships_create_path(requestee_id: user.id)  %>
-    <% end %>
+    <div class="user-profile">
+      <div class="profile">
+        <%= render 'users/partials/user_profile', user: user, link: true %>
+      </div>
+      <div class="comments">
+        <% if current_user.pending_following.include? user %>
+          <div class="">Request pending...</div>
+        <% else %>
+          <%= link_to 'Send request', friendships_create_path(requestee_id: user.id), class: 'option-button'  %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </main>
-
-<%= link_to 'New Post', new_post_path %>

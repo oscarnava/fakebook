@@ -12,7 +12,11 @@
     <% end %>
   </div>
 </nav>
-<header>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<header class='main-header'>
+  <div class="header-content">
+    <%= content_for :header_h1 %>
+    <%= content_tag :p, notice, class: notice ? 'notice' : 'display-none' %>
+    <%= content_tag :p, alert, class: alert ? 'alert' : 'display-none' %>
+    <%= content_for :main_header %>
+  </div>
 </header>

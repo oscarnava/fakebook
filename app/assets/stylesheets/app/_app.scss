@@ -51,6 +51,26 @@ main {
   padding: 0 1rem;
 }
 
+.main-header {
+  padding: 4rem 0;
+  background-color: mediumaquamarine;
+  margin-bottom: 3rem;
+  color: white;
+  .header-content {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .write-content {
+    border: solid 4px $border-color;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+  }
+  .send {
+    margin-left: 1rem;
+  }
+}
+
 a {
   text-decoration: none;
   color: $link-color;
@@ -68,4 +88,42 @@ a {
     font-weight: normal;
     color: $secondary-font-color;
   }
+}
+
+.write-content {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+}
+
+.cupcake-form {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  .field {
+    margin: 0 1rem;
+    flex-basis: 100%;
+  }
+  .actions {
+    margin-left: 1rem;
+  }
+  .send {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    background-color: $link-color;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  .send:hover {
+    filter: brightness(115%);
+  }
+}
+
+.display-none {
+  display: none;
 }

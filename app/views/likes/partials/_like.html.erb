@@ -1,8 +1,10 @@
-<div class="likes-wrapper">
+<div class="likes">
+  <% img = image_tag 'thumbs-up.png', alt: 'Thumbs-up' %>
+  <% count = content_tag :span, likeable.likes.count %>
+  <% content = "#{img}#{count}".html_safe %>
   <% if like = likeable.likes.find { |like| like.user.id == current_user.id } %>
-    <%= link_to image_tag('thumbs-up.png', alt: 'Thumbs-up'), likes_destroy_path(like_id: like.id) %>
+    <%= link_to content, likes_destroy_path(like_id: like.id), class: 'option-button' %>
   <% else %>
-    <%= link_to image_tag('thumbs-up.png', alt: 'Thumbs-up'), likes_create_path(likeable_id: likeable.id, likeable_type: likeable.class.name) %>
+    <%= link_to content, likes_create_path(likeable_id: likeable.id, likeable_type: likeable.class.name), class: 'option-button' %>
   <% end %>
-  <%= likeable.likes.count %>
 </div>

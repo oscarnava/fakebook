@@ -16,27 +16,39 @@ nav {
   background-color: salmon;
   color: white;
   padding: 0 1rem;
-  .menu > * {
-    padding: 0 1rem;
-    .pending-request {
-      background-color: deepskyblue;
-      width: 1rem;
-      display: inline-block;
-      height: 1rem;
-      border-radius: 50%;
-      padding: 0.25rem;
-      margin-left: 0.25rem;
-      transform: translateY(-5px);
-      text-align: center;
+  .menu {
+    display: flex;
+    align-items: center;
+    & > * {
+      padding: 0 1rem;
+      .pending-request {
+        font-size: .9rem;
+        font-weight: normal;
+        background-color: deepskyblue;
+        width: 1rem;
+        height: 1rem;
+        display: inline-block;
+        border-radius: 50%;
+        padding: 0.15rem;
+        margin-left: 0.25rem;
+        transform: translateY(-.5rem);
+        vertical-align: middle;
+        text-align: center;
+        line-height: 1rem;
+      }
     }
   }
   a {
     color: white;
-    text-decoration: none;
+    font-weight: bold;
   }
 }
 
 main {
   max-width: 620px;
   margin: auto;
+}
+
+a {
+  text-decoration: none;
 }

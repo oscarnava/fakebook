@@ -16,7 +16,11 @@
   <h4>All users</h4>
   <% (@users - following - followers - pending_followers - [current_user]).each do |user| %>
     <%= render 'users/partials/user_profile', user: user, link: true %>
-    <%= link_to 'Send request', friendships_create_path(requestee_id: user.id) %>
+    <% if current_user.pending_following.include? user %>
+      <div class="">Request pending...</div>
+    <% else %>
+      <%= link_to 'Send request', friendships_create_path(requestee_id: user.id)  %>
+    <% end %>
   <% end %>
 </main>
 

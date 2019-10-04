@@ -1,0 +1,29 @@
+.log-form {
+  max-width: 420px;
+  margin: auto;
+  border: solid 4px $border-color;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: $main-background-color;
+  color: $main-font-color;
+  .log-main {
+    padding: 1rem;
+  }
+  .log-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid $border-color;
+    margin: 0.5rem 0;
+    border-radius: 1rem;
+  }
+  .option-button {
+    margin: 1rem 0 0.5rem 0;
+    width: 100%;
+    font-size: inherit;
+    padding: 0.5rem;
+  }
+  .log-extras {
+    background-color: $border-color;
+    padding: 1rem;
+  }
+}

@@ -1,5 +1,5 @@
 <nav>
-  <h2><%= link_to 'Fakebook', root_path %></h2>
+  <h2 class="fakebook"><%= link_to 'Fakebook', root_path %></h2>
   <div class="menu">
     <% if user_signed_in? %>
       <% pending_requests = content_tag :div, current_user.pending_followers.count, class: 'pending-request' %>

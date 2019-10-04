@@ -1,13 +1,13 @@
 
 <% content_for :header_h1 do %>
-  <h1>Users 🙋</h1>
+  <h1 class="fakebook">Users 🙋</h1>
 <% end %>
 
 <main class="users-container">
   <% following = current_user.active_following %>
   <% followers = current_user.active_followers %>
   <% pending_followers = current_user.pending_followers %>
-  <h2>Pending requests</h2>
+  <%= content_tag :h2, 'Pending requests' if current_user.pending_followers.any? %>
   <% pending_followers.each do |pending_follower| %>
     <div class="user-profile">
       <div class="profile">
@@ -19,7 +19,7 @@
     </div>
 
   <% end %>
-  <h2>Following</h2>
+  <%= content_tag :h2, 'Following' if (following + followers).any? %>
   <% (following + followers).each do |pending_follower| %>
     <div class="user-profile">
       <div class="profile">

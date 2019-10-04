@@ -3,17 +3,38 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .comments {
+  font-size: 0.85rem;
+  background-color: peachpuff;
+  padding: 1rem;
   form {
-    background-color: $light-gray;
-    padding: 0.5rem;
+    margin-top: 1rem;
+    background-color: $border-color;
     display: flex;
-    margin: 1rem -5px -5px -5px;
     align-items: center;
     .field {
       margin: 0 1rem;
-      flex: auto;
+      flex-basis: 100%;
       textarea {
         width: 100%;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+      }
+    }
+    .actions {
+      margin-left: 1rem;
+      input {
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+        background-color: $link-color;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+      }
+      input:hover {
+        filter: brightness(115%);
       }
     }
   }
@@ -22,11 +43,13 @@
     display: flex;
     align-items: flex-start;
     .commment-content {
-      background-color: $light-gray;
+      position: relative;
+      background-color: $secondary-background-color;
+      color: white;
       padding: 0.5rem;
       border-radius: 0.5rem;
       min-height: 32px;
-      margin-left: 10px;
+      margin: 0 0.75rem;
     }
   }
 }

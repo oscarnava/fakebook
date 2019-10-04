@@ -4,7 +4,8 @@ html {
 }
 
 body {
-  background-color: $background-color;
+  background-color: $main-background-color;
+  color: $main-font-color;
   font-family: sans-serif;
   margin: 0;
 }
@@ -20,9 +21,9 @@ nav {
     display: flex;
     align-items: center;
     & > * {
-      padding: 0 1rem;
+      padding: 0 0.75rem;
       .pending-request {
-        font-size: .9rem;
+        font-size: 0.9rem;
         font-weight: normal;
         background-color: deepskyblue;
         width: 1rem;
@@ -31,7 +32,7 @@ nav {
         border-radius: 50%;
         padding: 0.15rem;
         margin-left: 0.25rem;
-        transform: translateY(-.5rem);
+        transform: translateY(-0.5rem);
         vertical-align: middle;
         text-align: center;
         line-height: 1rem;
@@ -46,9 +47,25 @@ nav {
 
 main {
   max-width: 620px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 a {
   text-decoration: none;
+  color: $link-color;
+}
+
+.option-button {
+  border-radius: 6px;
+  padding: 4px;
+  background-color: palegreen;
+  border: 2px solid $secondary-font-color;
+  margin-right: 0.25rem;
+  font-weight: normal;
+  color: $secondary-font-color;
+  a {
+    font-weight: normal;
+    color: $secondary-font-color;
+  }
 }

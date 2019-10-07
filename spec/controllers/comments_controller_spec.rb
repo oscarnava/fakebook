@@ -43,7 +43,7 @@ RSpec.describe CommentsController, type: :controller do
   # let(:valid_session) { {} }
 
   # include Devise::Test::ControllerHelpers
-  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   # Use the following instead if you are on Devise <= 4.2.0
   # include Devise::TestHelpers
 

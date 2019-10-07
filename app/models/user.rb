@@ -35,4 +35,16 @@ class User < ApplicationRecord
   def active_following
     following.filter(&:accepted?).map(&:requestee).sort_by(&:username)
   end
+
+  def rejected_followings
+    following.filter(&:rejected?).map(&:requestee).sort_by(&:username)
+  end
+
+  def rejected_followers
+    followers.filter(&:rejected?).map(&:requester).sort_by(&:username)
+  end
+
+  def remove_friendship(friend_id)
+    following.find_by_requestee_id(friend_id)&.destroy || followers.find_by_requester_id(friend_id)&.destroy
+  end
 end

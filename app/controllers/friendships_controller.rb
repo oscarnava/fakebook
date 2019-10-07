@@ -8,7 +8,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    current_user.following.destroy(params[:like_id])
+    current_user.remove_friendship params[:requestee_id]
     redirect_to users_path
   end
 

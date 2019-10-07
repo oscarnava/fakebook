@@ -18,7 +18,7 @@
 
   <% end %>
   <%= content_tag :h2, 'Following' if (following + followers).any? %>
-  <% (following + followers).each do |user| %>
+  <% (following + followers).sort_by(&:username).each do |user| %>
     <div class="user-profile">
       <div class="profile">
         <%= render 'users/partials/user_profile', user: user, link: true %>
@@ -28,8 +28,9 @@
       </div>
     </div>
   <% end %>
-  <h4>All users</h4>
-  <% (@users - following - followers - pending_followers - [current_user]).each do |user| %>
+  <% all_users =  (@users - following - followers - pending_followers - [current_user]).sort_by(&:username) %>
+  <%= content_tag :h2, 'All users' if all_users.any? %>
+  <% all_users.each do |user| %>
     <div class="user-profile">
       <div class="profile">
         <%= render 'users/partials/user_profile', user: user, link: true %>

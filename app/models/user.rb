@@ -10,35 +10,36 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  has_many :following_friendships, foreign_key: 'requester_id', class_name: :Friendship
-  has_many :followers_friendships, foreign_key: 'requestee_id', class_name: :Friendship
+  friendship_scope = -> { includes(:requester, :requestee).order('users.username') }
+  has_many :following_friendships, friendship_scope, foreign_key: 'requester_id', class_name: :Friendship
+  has_many :followers_friendships, friendship_scope, foreign_key: 'requestee_id', class_name: :Friendship
 
   default_scope { order(:username) }
 
   # Requests made by others to current_user
   def active_followers
-    followers_friendships.filter(&:accepted?).map(&:requester).sort_by(&:username)
+    followers_friendships.where(status: :accepted).map(&:requester)
   end
 
   def pending_followers
-    followers_friendships.filter(&:pending?).map(&:requester).sort_by(&:username)
+    followers_friendships.where(status: :pending).map(&:requester)
   end
 
   # Requests made by current_user to others
   def pending_following
-    following_friendships.filter(&:pending?).map(&:requestee).sort_by(&:username)
+    following_friendships.where(status: :pending).map(&:requestee)
   end
 
   def active_following
-    following_friendships.filter(&:accepted?).map(&:requestee).sort_by(&:username)
+    following_friendships.where(status: :accepted).map(&:requestee)
   end
 
   def rejected_followings
-    following.filter(&:rejected?).map(&:requestee).sort_by(&:username)
+    following_friendships.where(status: :rejected).map(&:requestee)
   end
 
   def rejected_followers
-    followers.filter(&:rejected?).map(&:requester).sort_by(&:username)
+    followers_friendships.where(status: :rejected).map(&:requester)
   end
 
   def remove_friendship(friend_id)

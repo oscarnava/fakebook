@@ -3,5 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'saves and retrieves' do
+    expect(Comment.new).to be_invalid
+    expect(create(:comment)).to be_valid
+  end
 end

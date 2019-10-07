@@ -3,5 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'saves and retrieves' do
+    expect(Post.new).to be_invalid
+    expect(create(:post)).to be_valid
+  end
 end

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 FactoryGirl.define do
-  factory :like do
+  factory :post do
     user { create(:user) }
-    likeable { create(:post) }
+    content { Faker::Lorem.paragraph }
   end
 end

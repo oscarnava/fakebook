@@ -10,7 +10,7 @@ RSpec.describe 'comments/new', type: :view do
     comment = Comment.new
     post = create(:post, user: user)
     create_list(:comment, 2, user: user, post: post, content: 'Content')
-    render 'comments/form', { post: post, comment: comment }
+    render 'comments/form', post: post, comment: comment
 
     assert_select 'form[action=?][method=?]', comments_path, 'post' do
       assert_select 'textarea[name=?]', 'comment[content]'

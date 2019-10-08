@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-
   # POST /comments
   def create
     current_user.comments.create(comment_params)

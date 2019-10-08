@@ -45,6 +45,7 @@ class User < ApplicationRecord
   end
 
   def remove_friendship(friend_id)
-    following_friendships.find_by_requestee_id(friend_id)&.destroy || followers_friendships.find_by_requester_id(friend_id)&.destroy
+    following_friendships.find_by_requestee_id(friend_id)&.destroy ||
+      followers_friendships.find_by_requester_id(friend_id)&.destroy
   end
 end

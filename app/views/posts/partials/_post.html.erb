@@ -7,10 +7,12 @@
     <div class="content"><%= post.content %></div>
     <div class="props">
       <%= render 'likes/partials/like', likeable: post %>
-      <div class="options">
-        <%= link_to 'Edit', edit_post_path(post), class: 'option-button' %>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'option-button' %>
-      </div>
+      <% if post.user == current_user %>
+        <div class="options">
+          <%= link_to 'Edit', edit_post_path(post), class: 'option-button' %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'option-button' %>
+        </div>
+      <% end %>
     </div>
   </div>
   <%= render 'comments/partials/comment', post: post, comment: comment %>

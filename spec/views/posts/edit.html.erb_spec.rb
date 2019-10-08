@@ -11,8 +11,8 @@ RSpec.describe 'posts/edit', type: :view do
     render
 
     assert_select 'form[action=?][method=?]', post_path(@post), 'post' do
-      assert_select 'input[name=?]', 'post[content]'
-      assert_select 'input[name=?]', 'post[user_id]'
+      assert_select 'textarea[name=?]', 'post[content]'
+      assert_select 'input[type=?]', 'submit'
     end
   end
 end

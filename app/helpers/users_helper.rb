@@ -8,7 +8,7 @@ module UsersHelper
     else
       avatar_url = user.image
     end
-    tag = image_tag(avatar_url, alt: user.username, class: 'gravatar', width: size)
+    tag = image_tag(avatar_url, alt: '[Avatar]', class: 'gravatar', width: size)
     link_it ? link_to(tag, user_path(user.username)) : tag
   end
 end

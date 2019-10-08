@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by('LOWER(username)= ?', params[:username].downcase)
+    @user = User
+      .includes(posts: [{ comments: %i[likes user] }, :likes])
+      .find_by('LOWER(username)= ?', params[:username].downcase)
     @comment = current_user.comments.new
   end
 end

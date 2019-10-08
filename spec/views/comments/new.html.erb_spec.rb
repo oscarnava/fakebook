@@ -3,23 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe 'comments/new', type: :view do
-  before(:each) do
-    assign(:comment, Comment.new(
-                       content: 'MyString',
-                       user: nil,
-                       post: nil
-                     ))
-  end
+  let(:user) { create(:user) }
 
   it 'renders new comment form' do
-    render
+    sign_in user
+    comment = Comment.new
+    post = create(:post, user: user)
+    create_list(:comment, 2, user: user, post: post, content: 'Content')
+    render 'comments/form', post: post, comment: comment
 
     assert_select 'form[action=?][method=?]', comments_path, 'post' do
-      assert_select 'input[name=?]', 'comment[content]'
-
-      assert_select 'input[name=?]', 'comment[user_id]'
-
-      assert_select 'input[name=?]', 'comment[post_id]'
+      assert_select 'textarea[name=?]', 'comment[content]'
+      assert_select 'input[type=?]', 'submit'
     end
   end
 end

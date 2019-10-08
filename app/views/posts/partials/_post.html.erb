@@ -2,7 +2,7 @@
   <div class="post-main">
     <div class="post-header">
       <%= render 'users/partials/post_user', user: post.user %>
-      <div class="creation-date"><%= link_to time_ago_in_words(post.created_at) + ' ago', post %></div>
+      <div class="creation-date"><%= time_ago_in_words(post.created_at) + ' ago' %></div>
     </div>
     <div class="content"><%= post.content %></div>
     <div class="props">

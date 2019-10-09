@@ -1,13 +1,10 @@
 <section class="user-profile">
   <span class="icon"><%= gravatar_for user, link_it: false %></span>
-  <div>
-    <div class="name">
-      <% if (link |= false) %>
-        <%= link_to user.username, user_path(user.username) %>
-      <% else %>
-        <%= user.username %>
-      <% end %>
-    </div>
-    <div class="email"><%= user.email %></div>
+  <div class="name">
+    <% if (link |= false) %>
+      <%= link_to user.username, user_path(user.username) %>
+    <% else %>
+      <%= user.username %>
+    <% end %>
   </div>
 </section>

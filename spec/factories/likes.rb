@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :like do
-    user nil
-    likeable nil
+    user { create(:user) }
+    likeable { create(:post) }
   end
 end

@@ -1,0 +1,23 @@
+<%= form_with(model: post, local: true, class: 'cupcake-form') do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= avatar_for current_user, size: 48 %>
+  <div class="field">
+    <%= form.text_area :content, placeholder: 'What are you thinking? 🤔', class: 'write-content' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Send', class: 'send' %>
+  </div>
+
+<% end %>

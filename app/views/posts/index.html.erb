@@ -1,0 +1,9 @@
+
+<% content_for :main_header do %>
+  <%= render 'form', post: @post %>
+<% end %>
+<main class="posts-container">
+  <% @posts.each do |post| %>
+  <%= render 'posts/partials/post', post: post, comment: @comment %>
+  <% end %>
+</main>

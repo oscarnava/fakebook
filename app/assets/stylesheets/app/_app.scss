@@ -1,0 +1,147 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $main-background-color;
+  color: $main-font-color;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: salmon;
+  color: white;
+  padding: 0 1rem;
+  @media only screen and (min-width: 600px) {
+    padding: 0 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    letter-spacing: 2px;
+    @media only screen and (min-width: 600px) {
+      font-size: 3rem;
+    }
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    & > * {
+      padding: 0 0.75rem;
+      .pending-request {
+        font-size: 0.9rem;
+        font-weight: normal;
+        background-color: deepskyblue;
+        width: 1.25rem;
+        height: 1.25rem;
+        display: inline-block;
+        border-radius: 50%;
+        padding: 0.15rem;
+        margin-left: 0.25rem;
+        transform: translateY(-0.5rem);
+        vertical-align: middle;
+        text-align: center;
+        line-height: 1rem;
+      }
+    }
+  }
+  a {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+main {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main-header {
+  padding: 4rem 0;
+  background-color: mediumaquamarine;
+  margin-bottom: 3rem;
+  color: white;
+  .header-content {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .write-content {
+    border: solid 4px $border-color;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;
+}
+
+.option-button {
+  border-radius: 6px;
+  padding: 4px;
+  background-color: palegreen;
+  border: 2px solid $secondary-font-color;
+  margin-right: 0.25rem;
+  font-weight: normal;
+  color: $secondary-font-color;
+  a {
+    font-weight: normal;
+    color: $secondary-font-color;
+  }
+}
+
+.write-content {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+}
+
+.cupcake-form {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  .field {
+    margin: 0 1rem;
+    flex-basis: 100%;
+  }
+  .send {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    background-color: $link-color;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  .send:hover {
+    filter: brightness(115%);
+  }
+}
+
+.display-none {
+  display: none;
+}
+
+.fakebook {
+  font-family: 'Bonbon', cursive;
+}
+
+.center {
+  text-align: center;
+}

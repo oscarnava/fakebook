@@ -1,0 +1,30 @@
+.profile {
+  display: flex;
+  .icon {
+    margin-right: 10px;
+  }
+}
+.user-profile {
+  background-color: white;
+  border: solid 4px $border-color;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
+  .profile,
+  .comments {
+    padding: 1rem;
+  }
+}
+.user-inset {
+  display: flex;
+  align-items: center;
+  .icon {
+    margin-right: 3px;
+  }
+  .name {
+    font-weight: bold;
+  }
+}
+.gravatar {
+  border-radius: 50%;
+}

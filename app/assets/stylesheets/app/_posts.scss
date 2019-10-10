@@ -1,0 +1,40 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-post {
+  margin-bottom: 0.25rem;
+  > :first-child {
+    margin-right: 0.25rem;
+  }
+}
+
+.post {
+  background-color: white;
+  border: solid 4px $border-color;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
+  .post-main {
+    padding: 1rem;
+  }
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .content {
+    border-top: 2px solid $border-color;
+    border-bottom: 2px solid $border-color;
+    font-size: 1.5rem;
+    color: peru;
+    font-weight: bold;
+    padding: 5px;
+    margin: 0.5rem 0;
+  }
+  .props {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+  }
+}

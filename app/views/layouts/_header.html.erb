@@ -1,5 +1,5 @@
 <nav>
-  <h2><%= link_to 'Fakebook', root_path %></h2>
+  <h2 class="fakebook"><%= image_tag "logo.png", height: 48 %> <%= link_to 'Cakebook', root_path %></h2>
   <div class="menu">
     <% if user_signed_in? %>
       <% pending_requests = content_tag :div, current_user.pending_followers.count, class: 'pending-request' %>
@@ -12,7 +12,11 @@
     <% end %>
   </div>
 </nav>
-<header>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<header class='main-header'>
+  <div class="header-content">
+    <%= content_for :header_h1 %>
+    <%= content_tag :p, notice, class: notice ? 'notice' : 'display-none' %>
+    <%= content_tag :p, alert, class: alert ? 'alert' : 'display-none' %>
+    <%= content_for :main_header %>
+  </div>
 </header>

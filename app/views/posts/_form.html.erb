@@ -1,4 +1,4 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: post, local: true, class: 'cupcake-form') do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
+  <%= avatar_for current_user, size: 48 %>
   <div class="field">
-    <%= form.label :content, 'What are you thinking?' %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, placeholder: 'What are you thinking? 🤔', class: 'write-content' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Send', class: 'send' %>
   </div>
+
 <% end %>

@@ -1,10 +1,13 @@
 
-<h1>Users</h1>
+<% content_for :header_h1 do %>
+  <h1 class="fakebook">Users 🙋</h1>
+<% end %>
+
 <main class="users-container">
   <% following = current_user.active_following %>
   <% followers = current_user.active_followers %>
   <% pending_followers = current_user.pending_followers %>
-  <h4>Pending requests</h4>
+  <%= content_tag :h2, 'Pending requests' if current_user.pending_followers.any? %>
   <% pending_followers.each do |pending_follower| %>
     <div class="user-profile">
       <div class="profile">
@@ -49,5 +52,3 @@
     </div>
   <% end %>
 </main>
-
-<%= link_to 'New Post', new_post_path %>

@@ -1,27 +1,20 @@
-$user-name-color: #0089ff;
-
-.user-profile {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.profile {
   display: flex;
-  align-items: flex-end;
-
   .icon {
     margin-right: 10px;
   }
-
-  .name {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: $user-name-color;
-  }
-
-  .email {
-    font-size: 12px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.user-profile {
+  background-color: white;
+  border: solid 4px $border-color;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
+  .profile,
+  .comments {
+    padding: 1rem;
   }
 }
-
 .user-inset {
   display: flex;
   align-items: center;
@@ -32,7 +25,6 @@ $user-name-color: #0089ff;
     font-weight: bold;
   }
 }
-
 .gravatar {
   border-radius: 50%;
 }

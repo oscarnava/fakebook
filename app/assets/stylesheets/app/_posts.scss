@@ -2,13 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.new-post {
+  margin-bottom: 0.25rem;
+  > :first-child {
+    margin-right: 0.25rem;
+  }
+}
+
 .post {
   background-color: white;
   border: solid 4px $border-color;
   border-radius: 1rem;
   margin-bottom: 2rem;
-  -webkit-box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
   .post-main {
     padding: 1rem;
@@ -18,40 +23,18 @@
     justify-content: space-between;
   }
   .content {
-    border-top: 4px solid $border-color;
-    border-bottom: 4px solid $border-color;
-    background-color: papayawhip;
+    border-top: 2px solid $border-color;
+    border-bottom: 2px solid $border-color;
     font-size: 1.5rem;
     color: peru;
     font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 5px;
-    margin: 10px 0;
+    margin: 0.5rem 0;
   }
-
   .props {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 0.9rem;
-  }
-
-  .creation-date {
-    margin: 0 5px;
-  }
-
-  .options {
-    ul {
-      display: flex;
-      align-items: center;
-      list-style-type: none;
-    }
-    li {
-      margin: 0 5px;
-      border: solid thin #444;
-      background-color: rgba(170, 170, 170, 0.479);
-      border-radius: 5px;
-      padding: 0 5px;
-    }
   }
 }

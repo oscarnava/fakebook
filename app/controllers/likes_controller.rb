@@ -2,7 +2,7 @@
 
 class LikesController < ApplicationController
   def create
-    flash[:error] = "Couldn't like the #{like_params[:likeable_type]}" unless current_user.likes.new(like_params).save
+    flash[:alert] = "Couldn't like the #{like_params[:likeable_type]}" unless current_user.likes.new(like_params).save
     redirect_to :root
   end
 

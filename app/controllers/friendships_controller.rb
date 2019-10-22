@@ -3,7 +3,7 @@
 class FriendshipsController < ApplicationController
   def create
     following = current_user.following_friendships.new(friendship_params)
-    flash[:error] = "Couldn't befriend #{friendship_params[:requestee_id]}" unless following.save
+    flash[:alert] = "Couldn't befriend #{friendship_params[:requestee_id]}" unless following.save
     redirect_to users_path
   end
 
@@ -14,7 +14,7 @@ class FriendshipsController < ApplicationController
 
   def update
     request = current_user.followers_friendships.find_by(requester_id: params[:requester_id])
-    flash[:error] = "Couldn't accept request." unless request.update(status: params[:status])
+    flash[:alert] = "Couldn't accept request." unless request.update(status: params[:status])
     redirect_to users_path
   end
 

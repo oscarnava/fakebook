@@ -15,8 +15,9 @@
 <header class='main-header'>
   <div class="header-content">
     <%= content_for :header_h1 %>
-    <%= content_tag :p, notice, class: notice ? 'notice' : 'display-none' %>
-    <%= content_tag :p, alert, class: alert ? 'alert' : 'display-none' %>
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key}" %>
+    <% end %>
     <%= content_for :main_header %>
   </div>
 </header>
